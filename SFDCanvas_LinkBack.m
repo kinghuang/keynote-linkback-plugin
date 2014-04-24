@@ -3,18 +3,27 @@
 //  K2LinkBackSupport
 //
 //  Created by King Chung Huang on 3/12/05.
-//  Copyright 2005 King Chung Huang. All rights reserved.
+//  Copyright 2005, 2007 King Chung Huang. All rights reserved.
 //
 
 #import "SFDCanvas_LinkBack.h"
+#import "SFDDrawableInfo_Linkback.h"
+#import "SFDSelectionController_LinkBack.h"
+#import "SFDAffineGeometry.h"
 
-static NSMutableDictionary *activeLinksByCanvas = nil;
+static NSMutableDictionary *_activeLinksByCanvas = nil;
 
 @implementation SFDCanvas (LinkBack)
 
-+ (void)initialize {
-	activeLinksByCanvas = [[NSMutableDictionary alloc] initWithCapacity:128];
++ (NSMutableDictionary *)_activeLinksByCanvas {
+	if (_activeLinksByCanvas == nil) {
+		_activeLinksByCanvas = [[NSMutableDictionary alloc] initWithCapacity:128];
+	}
+	
+	return _activeLinksByCanvas;
 }
+
+#pragma mark LinkBackClientDelegate protocol
 
 - (void)linkBackDidClose:(LinkBack *)link {
 	[self removeActiveLink:link];
@@ -22,42 +31,51 @@ static NSMutableDictionary *activeLinksByCanvas = nil;
 
 - (void)linkBackServerDidSendEdit:(LinkBack *)link {
 	NSPasteboard *pasteboard = [link pasteboard];
-	id newInfo, oldInfo = [link representedObject];
+	id newInfo, oldInfo;
 	
+	oldInfo = [link representedObject];
 	newInfo = [self makeInfoFromPasteboard:pasteboard withStyle:[oldInfo style]];
-	
-	//NSLog(@"[oldInfo style] = %@", [oldInfo style]);
 	
 	id lbd = [newInfo linkBackData];
 	[newInfo setLinkBackData:nil];
 	[newInfo setLinkBackKey:[oldInfo linkBackKey]];
 	[newInfo setLinkBackData:lbd];
-
-	NSEnumerator *mutableProperties = [[newInfo mutableProperties] objectEnumerator];
-	id property;
 	
-	while (property = [mutableProperties nextObject]) {
+	NSEnumerator *properties = [[oldInfo styleProperties] objectEnumerator];
+	id property, value;
+	
+	while (property = [properties nextObject]) {
 		if ([oldInfo canInspectProperty:property]) {
-			[newInfo setValue:[oldInfo valueForProperty:property] forProperty:property];
-			//NSLog(@"setValue:%@ forProperty:%@", [oldInfo valueForProperty:property], property);
+			value = [oldInfo valueForProperty:property];
+			
+			if (value != nil && [newInfo canMutateProperty:property]) {
+				[newInfo setValue:value forProperty:property];
+			}
 		}
 	}
 	
-	id transform = [[oldInfo geometry] transform];
-	NSSize natural = [[newInfo geometry] naturalSize];
+	SFDAffineGeometry *oldGeometry = [oldInfo geometry];
 	
-	SFDAffineGeometry *geometry = [[SFDAffineGeometry alloc] initWithNaturalBounds:NSMakeRect(0, 0, natural.width, natural.height) transform:transform sizesLocked:NO aspectRatioLocked:YES];
+	NSSize oldNaturalSize = [oldInfo naturalSize];
+	NSSize oldSize = [oldInfo size];
 	
-	[newInfo setGeometry:geometry];
+	NSSize newNaturalSize = [newInfo naturalSize];
+	NSSize newSize = NSMakeSize(newNaturalSize.width * oldSize.width / oldNaturalSize.width, newNaturalSize.height * oldSize.height / oldNaturalSize.height);
 	
-	id slide = [self activeSlide];
-	[slide removeDrawable:oldInfo];
-	[slide addDrawable:newInfo];
+	SFDAffineGeometry *newGeometry = [[SFDAffineGeometry alloc] initWithNaturalSize:newNaturalSize size:newSize sizesLocked:[oldGeometry sizesLocked] aspectRatioLocked:[oldGeometry aspectRatioLocked] position:[oldGeometry position] angleInDegrees:[oldGeometry angleInDegrees] horizontalFlip:[oldGeometry horizontalFlip] verticalFlip:[oldGeometry verticalFlip] shearXAngle:[oldGeometry shearXAngle] shearYAngle:[oldGeometry shearYAngle]];
+	
+	[newInfo setGeometry:newGeometry];
+		
+	id slide = [self performSelector:@selector(activeSlide)];
+	
+	[slide performSelector:@selector(removeDrawable:) withObject:oldInfo];
+	[slide performSelector:@selector(addDrawable:) withObject:newInfo];
 	
 	[link setRepresentedObject:newInfo];
 }
 
-// Managing LinkBacks
+#pragma mark Managing LinkBacks
+
 - (void)addActiveLink:(LinkBack *)link {
 	if (link != nil)
 		[[self activeLinks] addObject:link];
@@ -68,12 +86,12 @@ static NSMutableDictionary *activeLinksByCanvas = nil;
 }
 
 - (NSMutableArray *)activeLinks {
-	NSMutableArray *links = [activeLinksByCanvas objectForKey:[self canvasKey]];
+	NSMutableArray *links = [[[self class] _activeLinksByCanvas] objectForKey:[self canvasKey]];
 	
 	if (links == nil) {
 		links = [NSMutableArray arrayWithCapacity:8];
 		
-		[activeLinksByCanvas setObject:links forKey:[self canvasKey]];
+		[[[self class] _activeLinksByCanvas] setObject:links forKey:[self canvasKey]];
 	}
 	
 	return links;
@@ -86,14 +104,15 @@ static NSMutableDictionary *activeLinksByCanvas = nil;
 		[links makeObjectsPerformSelector:@selector(closeLink)];
 	}
 	
-	[activeLinksByCanvas removeObjectForKey:[self canvasKey]];
+	[[[self class] _activeLinksByCanvas] removeObjectForKey:[self canvasKey]];
 }
 
 - (NSNumber *)canvasKey {
 	return [NSNumber numberWithUnsignedInt:(unsigned)self];
 }
 
-// Starting a LinkBack
+#pragma mark Starting a LinkBack
+
 - (void)beginLinkBackForSelection:(id)sender {
 	NSArray *infos = [[self selectionController] selectedLinkBackInfos];
 	int idx = [infos count];
@@ -104,7 +123,7 @@ static NSMutableDictionary *activeLinksByCanvas = nil;
 }
 
 - (void)beginLinkBackForInfo:(SFDDrawableInfo *)info canvas:(SFDCanvas *)canvas {
-	if ([info respondsToSelector:@selector(hasLinkBackData)] && [info hasLinkBackData]) {
+	if ([info respondsToSelector:@selector(hasLinkBackData)] && [info performSelector:@selector(hasLinkBackData)]) {
 		id data = [info linkBackData];
 		
 		NSString *sourceName = [[[info storage] document] displayName];

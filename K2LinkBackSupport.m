@@ -3,17 +3,21 @@
 //  K2LinkBackSupport
 //
 //  Created by King Chung Huang on 3/12/05.
-//  Copyright 2005 King Chung Huang. All rights reserved.
+//  Copyright 2005, 2007 King Chung Huang. All rights reserved.
 //
 
 #import "K2LinkBackSupport.h"
+
+#import <LinkBack/LinkBack.h>
+
+#import <unistd.h>
+#import <mach-o/dyld.h>
+#import "APELite.h"
+
+#import <libxml/tree.h>
+
 #import "SFDDrawableInfo_LinkBack.h"
 #import "SFDCanvas_LinkBack.h"
-
-#import "APELite.h"
-#include <unistd.h>
-#include <mach-o/dyld.h>
-#import <LinkBack/LinkBack.h>
 
 struct objc_method {
 	char *method_name;
@@ -21,103 +25,96 @@ struct objc_method {
 	void *method_imp;
 };
 
+#pragma mark Swizzled methods typedefs
+
 extern struct objc_method *class_getInstanceMethod(void *inClass, void *selector);
 
-typedef void *(*BGC_makeInfoFromPasteboardProcPtr)(void *inObj, char *inSel, NSPasteboard *pasteboard, BOOL style);
-typedef void (*NSO_deallocProcPtr)(void *inObj, char *inSel);
-typedef void (*BGC_beginEditingRepWithEventProcPtr)(void *inObj, char *inSel, id rep, NSEvent *event);
-typedef BOOL (*SFDRep_isEditableProcPtr)(void *inObj, char *inSel);
-typedef void *(*SLPC_drawablesFromPasteboard1ProcPtr)(void *inObj, char *inSel, NSPasteboard *pasteboard, id type, BOOL unformatted, BOOL stylesOnly, id drawablesController, char *returningWasNative, id *errors);
-typedef void *(*SLPC_drawablesFromPasteboard2ProcPtr)(void *inObj, char *inSel, NSPasteboard *pasteboard, id type, id targetController, char *returningWasNative, id *errors);
-typedef void *(*SLDC_importDrawablesFromPasteboard1ProcPtr)(void *inObj, char *inSel, NSPasteboard *pasteboard, id type, BOOL includeFormatting, id *errors);
-typedef void *(*SLDC_importDrawablesFromPasteboard2ProcPtr)(void *inObj, char *inSel, NSPasteboard *pasteboard, id importableTypes, BOOL includeFormatting, id *errors);
-typedef void (*SLDAPC_beginEditingRepWithEventProcPtr)(void *inObj, char *inSel, id rep, NSEvent *event);
-typedef void (*SLC_beginEditingDrawableProcPtr)(void *inObj, char *inSel, id drawable);
-typedef void (*SLPC_beginEditingDrawableProcPtr)(void *inObj, char *inSel, id drawable);
-typedef void (*SLDA_initiateEditingAtStoragePositionProcPtr)(void *inObj, char *inSel, id fp8);
-typedef BOOL (*BGC_validateMenuItemProcPtr)(void *inObj, char *inSel, NSMenuItem *cell);
+typedef void *(*BGC_makeInfoFromPasteboardProcPtr)(id inObj, SEL inSel, NSPasteboard *pasteboard, BOOL style);
+typedef void (*NSO_deallocProcPtr)(id inObj, SEL inSel);
+typedef void (*BGC_beginEditingRepWithEventProcPtr)(id inObj, SEL inSel, id rep, NSEvent *event);
+typedef BOOL (*SFDRep_isEditableProcPtr)(id inObj, SEL inSel);
+typedef void *(*SLDC_importDrawablesFromPasteboard1ProcPtr)(id inObj, SEL inSel, NSPasteboard *pasteboard, id type, BOOL includeFormatting, id *errors);
+typedef BOOL (*BGC_validateMenuItemProcPtr)(id inObj, SEL inSel, NSMenuItem *cell);
+typedef void *(*SFDDI_initWithXMLUnarchiverProcPtr)(id inObj, SEL inSel, SFAXMLUnarchiver *unarchiver, xmlNodePtr node, unsigned long version);
+typedef void (*SFDDI_encodeWithXMLArchievrProcPtr)(id inObj, SEL inSel, SFAXMLArchiver *archiver, xmlNodePtr node, unsigned long version);
+typedef void (*SFDDI_deallocProcPtr)(id inObj, SEL inSel);
 
 BGC_makeInfoFromPasteboardProcPtr gBGC_makeInfoFromPasteboard = NULL;
 NSO_deallocProcPtr gBGC_dealloc = NULL;
 BGC_beginEditingRepWithEventProcPtr gBGC_beginEditingRepWithEvent = NULL;
 SFDRep_isEditableProcPtr gSFDImageRep_editable = NULL;
-SLPC_drawablesFromPasteboard1ProcPtr gSLPC_drawablesFromPasteboard1 = NULL;
-SLPC_drawablesFromPasteboard2ProcPtr gSLPC_drawablesFromPasteboard2 = NULL;
 SLDC_importDrawablesFromPasteboard1ProcPtr gSLDC_importDrawablesFromPasteboard1 = NULL;
-SLDC_importDrawablesFromPasteboard2ProcPtr gSLDC_importDrawablesFromPasteboard2 = NULL;
-SLDAPC_beginEditingRepWithEventProcPtr gSLDAPC_beginEditingRepWithEvent = NULL;
-SLC_beginEditingDrawableProcPtr gSLC_beginEditingDrawable = NULL;
-SLPC_beginEditingDrawableProcPtr gSLPC_beginEditingDrawable = NULL;
-SLDA_initiateEditingAtStoragePositionProcPtr gSLDA_initiateEditingAtStoragePosition = NULL;
 BGC_validateMenuItemProcPtr gBGC_validateMenuItem = NULL;
+SFDDI_initWithXMLUnarchiverProcPtr gSFDDI_initWithXMLUnarchiver = NULL;
+SFDDI_encodeWithXMLArchievrProcPtr gSFDDI_encodeWithXMLArchiver = NULL;
+SFDDI_deallocProcPtr gSFDDI_dealloc = NULL;
 
-NSArray *retainer = NULL;
+#pragma mark Swizzled methods implementation
 
-void *LB_BGC_makeInfoFromPasteboard(void *inObj, char *inSel, NSPasteboard *pasteboard, BOOL style) {
+void *LB_BGC_makeInfoFromPasteboard(id inObj, SEL inSel, NSPasteboard *pasteboard, BOOL style) {
 	id info = gBGC_makeInfoFromPasteboard(inObj, inSel, pasteboard, style);
 	
 	if ([info respondsToSelector:@selector(setLinkBackData:)] && [[pasteboard types] containsObject:LinkBackPboardType]) {
 		id lbd = [pasteboard propertyListForType:LinkBackPboardType];
 		
-		[info takeValue:lbd forKey:@"linkBackData"];
+		[info performSelector:@selector(setLinkBackData:) withObject:lbd];
 	}
 	
 	return info;
 }
 
-void *LB_BGC_dealloc(void *inObj, char *inSel) {
-	id canvas = inObj;
+void *LB_BGC_dealloc(id canvas, SEL inSel) {
+	if ([canvas respondsToSelector:@selector(deallocLinks)]) {
+		[canvas performSelector:@selector(deallocLinks)];
+	}
 	
-	[canvas deallocLinks];
-	
-	gBGC_dealloc(inObj, inSel);
+	gBGC_dealloc(canvas, inSel);
 }
 
-void *LB_BGC_beginEditingRepWithEvent(void *canvas, char *inSel, id rep, NSEvent *event) {
-	id info = [rep info];
+void *LB_BGC_beginEditingRepWithEvent(id inObj, SEL inSel, id rep, NSEvent *event) {
+	NSLog(@"LB_BGC_beginEditingRepWithEvent");
 	
-	if ([info respondsToSelector:@selector(hasLinkBackData)] && [info hasLinkBackData]) {
-		[canvas beginLinkBackForInfo:info canvas:[rep canvas]];
-	} else {
-		gBGC_beginEditingRepWithEvent(canvas, inSel, rep, event);
+	if ([rep respondsToSelector:@selector(info)]) {
+		id info = [rep performSelector:@selector(info)];
+		
+		if ([info respondsToSelector:@selector(hasLinkBackData)] && [info performSelector:@selector(hasLinkBackData)]) {
+			id canvas = inObj;
+			
+			NSLog(@"YES");
+			
+			[canvas beginLinkBackForInfo:info canvas:[rep performSelector:@selector(canvas)]];
+		} else {
+			NSLog(@"NO");
+			
+			gBGC_beginEditingRepWithEvent(inObj, inSel, rep, event);
+		}
+	}
+
+}
+
+BOOL LB_SFDImageRep_editable(id rep, SEL inSel) {
+	NSLog(@"LB_SFDImageRep_editable");
+	
+	if ([rep respondsToSelector:@selector(info)]) {
+		id info = [rep performSelector:@selector(info)];
+		
+		if ([info respondsToSelector:@selector(hasLinkBackData)] && [info performSelector:@selector(hasLinkBackData)]) {
+			NSLog(@"\tYES");
+			return YES;
+		} else {
+			NSLog(@"\tNO");
+			return gSFDImageRep_editable(rep, inSel);
+		}
 	}
 }
 
-BOOL LB_SFDImageRep_editable(void *inObj, char *inSel) {
-	id info = [inObj info];
-	
-	if ([info respondsToSelector:@selector(hasLinkBackData)] && [info hasLinkBackData]) {
-		//NSLog(@"SFDImageRep isEditable = YES");
-		return YES;
-	} else {
-		//NSLog(@"SFDImageRep isEditable = OTHER");
-		return gSFDImageRep_editable(inObj, inSel);
-	}
-}
-
-void *LB_SLPC_drawablesFromPasteboard1(void *inObj, char *inSel, NSPasteboard *pasteboard, id type, BOOL unformatted, BOOL stylesOnly, id drawablesController, char *returningWasNative, id *errors) {
-	NSLog(@"drawablesFromPasteboard1:%@ type:%@", pasteboard, type);
-	
-	return gSLPC_drawablesFromPasteboard1(inObj, inSel, pasteboard, type, unformatted, stylesOnly, drawablesController, returningWasNative, errors);
-}
-
-void *LB_SLPC_drawablesFromPasteboard2(void *inObj, char *inSel, NSPasteboard *pasteboard, id type, id targetController, char *returningWasNative, id *errors) {
-	NSLog(@"drawablesFromPasteboard2:%@ type:%@", pasteboard, type);
-	
-	return gSLPC_drawablesFromPasteboard2(inObj, inSel, pasteboard, type, targetController, returningWasNative, errors);
-}
-
-void *LB_SLDC_importDrawablesFromPasteboard1(void *inObj, char *inSel, NSPasteboard *pasteboard, id type, BOOL includeFormatting, id *errors) {
-	NSLog(@"importDrawablesFromPasteboard1:");
-	
+void *LB_SLDC_importDrawablesFromPasteboard1(id inObj, SEL inSel, NSPasteboard *pasteboard, id type, BOOL includeFormatting, id *errors) {
 	id drawables = gSLDC_importDrawablesFromPasteboard1(inObj, inSel, pasteboard, type, includeFormatting, errors);
 	NSEnumerator *infos = [drawables objectEnumerator];
 	id info;
 	
 	while (info = [infos nextObject]) {
 		if ([info respondsToSelector:@selector(setLinkBackData:)] && [[pasteboard types] containsObject:LinkBackPboardType]) {
-			NSLog(@"setting LinkBack data");
-			
 			id lbd = [pasteboard propertyListForType:LinkBackPboardType];
 			
 			[info takeValue:lbd forKey:@"linkBackData"];
@@ -127,43 +124,13 @@ void *LB_SLDC_importDrawablesFromPasteboard1(void *inObj, char *inSel, NSPastebo
 	return drawables;
 }
 
-void *LB_SLDC_importDrawablesFromPasteboard2(void *inObj, char *inSel, NSPasteboard *pasteboard, id importableTypes, BOOL includeFormatting, id *errors) {
-	NSLog(@"importDrawablesFromPasteboard2:%@ importableTypes:%@", pasteboard, importableTypes);
-	
-	return gSLDC_importDrawablesFromPasteboard2(inObj, inSel, pasteboard, importableTypes, includeFormatting, errors);
-}
-
-void *LB_LSDAPC_beginEditingRepWithEvent(void *inObj, char *inSel, id rep, NSEvent *event) {
-	NSLog(@"beginEditingRep:%@ withEvent:%@", rep, event);
-	
-	gSLDAPC_beginEditingRepWithEvent(inObj, inSel, rep, event);
-}
-
-void *LB_SLC_beginEditingDrawable(void *inObj, char *inSel, id drawable) {
-	NSLog(@"beginEditingDrawable:%@", drawable);
-	
-	gSLC_beginEditingDrawable(inObj, inSel, drawable);
-}
-
-void *LB_SLPC_beginEditingDrawable(void *inObj, char *inSel, id drawable) {
-	NSLog(@"beginEditingDrawable:%@", drawable);
-	
-	gSLPC_beginEditingDrawable(inObj, inSel, drawable);
-}
-
-void *LB_SLDA_initiateEditingAtStoragePosition(void *inObj, char *inSel, id fp8) {
-	NSLog(@"initiateEditingAtStoragePosition:%@", fp8);
-	
-	gSLDA_initiateEditingAtStoragePosition(inObj, inSel, fp8);
-}
-
-BOOL LB_BGC_validateMenuItem(void *inObj, char *inSel, NSMenuItem *cell) {
-	SEL action = [cell action];
-	
-	if (action == @selector(beginLinkBackForSelection:)) {
+BOOL LB_BGC_validateMenuItem(id inObj, SEL inSel, NSMenuItem *cell) {
+	if ([cell action] == @selector(beginLinkBackForSelection:)) {
 		BOOL ret;
 		NSString *title;
-		NSArray *infos = [[inObj selectionController] selectedLinkBackInfos];
+		id canvas = inObj;
+		
+		NSArray *infos = [[canvas selectionController] performSelector:@selector(selectedLinkBackInfos)];
 		
 		if ([infos count] == 1) {
 			title = [[[infos objectAtIndex:0] linkBackData] linkBackEditMenuTitle];
@@ -184,135 +151,101 @@ BOOL LB_BGC_validateMenuItem(void *inObj, char *inSel, NSMenuItem *cell) {
 	return gBGC_validateMenuItem(inObj, inSel, cell);
 }
 
+void *LB_SFDDI_initWithXMLUnarchiver(id inObj, SEL inSel, SFAXMLUnarchiver *unarchiver, xmlNodePtr node, unsigned long version) {
+	id obj = nil;
+	
+	if (obj = gSFDDI_initWithXMLUnarchiver(inObj, inSel, unarchiver, node, version)) {
+		xmlNode *cur_node = node->children;
+		NSData *lbd = nil;
+		
+		for (cur_node = node->children; cur_node && (lbd == nil); cur_node = cur_node->next) {
+			if (cur_node->type == XML_ELEMENT_NODE && strcmp(cur_node->name, "LinkBackData") == 0) {
+				lbd = [unarchiver createObjectOfClass:[NSData class] fromNode:cur_node];
+			}
+		}
+		
+		if (lbd != nil) {
+			[obj setLinkBackData:[NSPropertyListSerialization propertyListFromData:lbd mutabilityOption:NSPropertyListImmutable format:nil errorDescription:nil]];
+		}
+	}
+		
+	return obj;
+}
+
+void LB_SFDDI_encodeWithXMLArchiver(id inObj, SEL inSel, SFAXMLArchiver *archiver, xmlNodePtr node, unsigned long version) {
+	gSFDDI_encodeWithXMLArchiver(inObj, inSel, archiver, node, version);
+	
+	id obj = inObj;
+	id lbd = [obj linkBackData];
+	
+	if (lbd != nil) {
+		NSData *data = [NSPropertyListSerialization dataFromPropertyList:lbd format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+		
+		if (data != nil) {
+			[archiver encodeObject:data asChildOf:node withName:"LinkBackData" xmlNamespace:nil];
+		}
+	}	
+}
+
+void LB_SFDDI_dealloc(id inObj, SEL inSel) {
+	id info = inObj;
+	
+	if ([info respondsToSelector:@selector(deallocLinkBack)]) {
+		[info performSelector:@selector(deallocLinkBack)];
+	}
+	
+	gSFDDI_dealloc(inObj, inSel);
+}
+
+#pragma mark Plugin initialization
+
 @implementation K2LinkBackSupport
 
 + (void)initialize {
-	id observer = [[K2LinkBackSupport alloc] init];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:observer selector:@selector(appDidFinishLaunching:) name:NSApplicationDidFinishLaunchingNotification object:nil];
-	
-	[SFDDrawableInfo_LinkBack poseAsClass:[SFDDrawableInfo class]];
-	
 	NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
 	
+	// Note: Leopard has its own functions. Check compatibility.
+	
 	if ([identifier isEqualToString:@"com.apple.iWork.Keynote"]) {
-		Class bgcClass = objc_getClass("BGCanvas");
+		Class bgclass;
 		struct objc_method *method;
 		
-		if (bgcClass) {
-			[bgcClass initialize];
+		if (bgclass = objc_getClass("BGCanvas")) {
+			[bgclass initialize];
 			
-			/*
-			if (method = class_getInstanceMethod(bgcClass, NSSelectorFromString(@"makeInfoFromPasteboard:withStyle:")))
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"makeInfoFromPasteboard:withStyle:")))
 				gBGC_makeInfoFromPasteboard = APEPatchCreate(method->method_imp, &LB_BGC_makeInfoFromPasteboard);
-			 */
 			
-			if (method = class_getInstanceMethod(bgcClass, NSSelectorFromString(@"dealloc")))
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"dealloc")))
 				gBGC_dealloc = APEPatchCreate(method->method_imp, &LB_BGC_dealloc);
 			
-			if (method = class_getInstanceMethod(bgcClass, NSSelectorFromString(@"beginEditingRep:withEvent:")))
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"beginEditingRep:withEvent:")))
 				gBGC_beginEditingRepWithEvent = APEPatchCreate(method->method_imp, &LB_BGC_beginEditingRepWithEvent);
 			
-			if (method = class_getInstanceMethod(bgcClass, NSSelectorFromString(@"validateMenuItem:")))
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"validateMenuItem:")))
 				gBGC_validateMenuItem = APEPatchCreate(method->method_imp, &LB_BGC_validateMenuItem);
 		}
 		
-		if (bgcClass = objc_getClass("SFDImageRep")) {
-			if (method = class_getInstanceMethod(bgcClass, NSSelectorFromString(@"isEditable")))
+		if (bgclass = objc_getClass("SFDImageRep")) {
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"isEditable")))
 				gSFDImageRep_editable = APEPatchCreate(method->method_imp, &LB_SFDImageRep_editable);
 		}
+		
+		if (bgclass = objc_getClass("SFDDrawableInfo")) {
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"initWithXMLUnarchiver:node:version:")))
+				gSFDDI_initWithXMLUnarchiver = APEPatchCreate(method->method_imp, &LB_SFDDI_initWithXMLUnarchiver);
+			
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"encodeWithXMLArchiver:node:version:")))
+				gSFDDI_encodeWithXMLArchiver = APEPatchCreate(method->method_imp, &LB_SFDDI_encodeWithXMLArchiver);
+			
+			if (method = class_getInstanceMethod(bgclass, NSSelectorFromString(@"dealloc")))
+				gSFDDI_dealloc = APEPatchCreate(method->method_imp, &LB_SFDDI_dealloc);
+		}
 	} else if ([identifier isEqualToString:@"com.apple.iWork.Pages"]) {
-		Class slcClass = objc_getClass("SLPasteboardController");
-		struct objc_method *method;
-		
-		if (slcClass) {
-			[slcClass initialize];
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"drawablesFromPasteboard:type:unformatted:stylesOnly:toDrawablesController:returningWasNative:errors:")))
-				gSLPC_drawablesFromPasteboard1 = APEPatchCreate(method->method_imp, &LB_SLPC_drawablesFromPasteboard1);
-			else
-				NSLog(@"failed to patch drawablesFromPasteboard1");
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"drawablesFromPasteboard:type:targetController:returningWasNative:errors:")))
-				gSLPC_drawablesFromPasteboard2 = APEPatchCreate(method->method_imp, &LB_SLPC_drawablesFromPasteboard2);
-			else
-				NSLog(@"failed to patch drawablesFromPasteboard2");
-		} else {
-			NSLog(@"failed to find SLPasteboardController");
-		}
-		
-		slcClass = objc_getClass("SLDrawablesController");
-		
-		if (slcClass) {
-			[slcClass initialize];
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"importDrawablesFromPasteboard:type:includingFormatting:errors:")))
-				gSLDC_importDrawablesFromPasteboard1 = APEPatchCreate(method->method_imp, &LB_SLDC_importDrawablesFromPasteboard1);
-			else
-				NSLog(@"failed to patch importDrawablesFromPasteboard1");
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"importDrawablesFromPasteboard:importableTypes:includingFormatting:errors:")))
-				gSLDC_importDrawablesFromPasteboard2 = APEPatchCreate(method->method_imp, &LB_SLDC_importDrawablesFromPasteboard2);
-			else
-				NSLog(@"failed to patch importDrawablesFromPasteboard2");
-		} else {
-			NSLog(@"failed to find SLDrawablesController");
-		}
-		
-		slcClass = objc_getClass("SLDrawableAttachmentProxyCanvas");
-		
-		if (slcClass) {
-			[slcClass initialize];
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"beginEditingRep:withEvent:")))
-				gSLDAPC_beginEditingRepWithEvent = APEPatchCreate(method->method_imp, &LB_LSDAPC_beginEditingRepWithEvent);
-			else
-				NSLog(@"failed to patch beginEditingRep:withEvent:");
-		} else {
-			NSLog(@"failed to find SLDrawableAttachmentProxyCanvas");
-		}
-		
-		slcClass = objc_getClass("SLCanvas");
-		
-		if (slcClass) {
-			[slcClass initialize];
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"beginEditingDrawable:")))
-				gSLC_beginEditingDrawable = APEPatchCreate(method->method_imp, &LB_SLC_beginEditingDrawable);
-			else
-				NSLog(@"failed to patch beginEditingDrawable");
-		} else {
-			NSLog(@"failed to find SLCanvas");
-		}
-		
-		slcClass = objc_getClass("SLPaginatedCanvas");
-		
-		if (slcClass) {
-			[slcClass initialize];
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"beginEditingDrawable:")))
-				gSLPC_beginEditingDrawable = APEPatchCreate(method->method_imp, &LB_SLPC_beginEditingDrawable);
-			else
-				NSLog(@"failed to patch beginEditingDrawable");
-		} else {
-			NSLog(@"failed to find SLPaginatedCanvas");
-		}
-		
-		slcClass = objc_getClass("SLDrawableAttachment");
-		
-		if (slcClass) {
-			[slcClass initialize];
-			
-			if (method = class_getInstanceMethod(slcClass, NSSelectorFromString(@"initiateEditingAtStoragePosition:")))
-				gSLDA_initiateEditingAtStoragePosition = APEPatchCreate(method->method_imp, &LB_SLDA_initiateEditingAtStoragePosition);
-			else
-				NSLog(@"failed to patch initiateEditingAtStoragePosition");
-		} else {
-			NSLog(@"failed to find SLDrawablesAttachment");
-		}
+		// Removed for public code release
 	}
 	
-	// Prep the LinkBack edit menu item
+	// Add the LinkBack menu item
 	
 	NSMenu *mainMenu = [NSApp mainMenu];
 	NSMenu *editMenu = [[mainMenu itemAtIndex:2] submenu];
@@ -321,30 +254,6 @@ BOOL LB_BGC_validateMenuItem(void *inObj, char *inSel, NSMenuItem *cell) {
 	
 	NSMenuItem *linkBackEdit = [editMenu addItemWithTitle:LinkBackEditNoneMenuTitle() action:@selector(beginLinkBackForSelection:) keyEquivalent:@""];
 	[linkBackEdit setEnabled:NO];
-}
-
-- (id)init {
-	if (self = [super init]) {
-		
-	}
-	
-	return self;
-}
-
-- (void)appDidFinishLaunching:(NSNotification *)notification {
-	NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-	
-	if ([identifier isEqualToString:@"com.apple.iWork.Keynote"]) {
-		Class bgcClass = objc_getClass("BGCanvas");
-		struct objc_method *method;
-		
-		if (bgcClass) {
-			[bgcClass initialize];
-			
-			if (method = class_getInstanceMethod(bgcClass, NSSelectorFromString(@"makeInfoFromPasteboard:withStyle:")))
-				gBGC_makeInfoFromPasteboard = APEPatchCreate(method->method_imp, &LB_BGC_makeInfoFromPasteboard);
-		}
-	}
 }
 
 @end

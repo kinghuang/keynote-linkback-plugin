@@ -3,11 +3,11 @@
 //  K2LinkBackSupport
 //
 //  Created by King Chung Huang on 3/30/05.
-//  Copyright 2005 King Chung Huang. All rights reserved.
+//  Copyright 2005, 2007 King Chung Huang. All rights reserved.
 //
 
 #import "SFDSelectionController_LinkBack.h"
-
+#import "SFDDrawableInfo_LinkBack.h"
 
 @implementation SFDSelectionController (LinkBack)
 

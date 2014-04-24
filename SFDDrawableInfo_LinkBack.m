@@ -3,80 +3,56 @@
 //  K2LinkBackSupport
 //
 //  Created by King Chung Huang on 3/12/05.
-//  Copyright 2005 King Chung Huang. All rights reserved.
+//  Copyright 2005, 2007 King Chung Huang. All rights reserved.
 //
 
 #import "SFDDrawableInfo_LinkBack.h"
+#import <LinkBack/LinkBack.h>
 
-static NSMutableDictionary *linkBackDataByInfo = nil;
-static NSMutableDictionary *linkBackKeysByInfo = nil;
+@implementation SFDDrawableInfo (LinkBack)
 
-@implementation SFDDrawableInfo_LinkBack
+static NSMutableDictionary *_linkBackDataByInfo = nil;
+static NSMutableDictionary *_linkBackKeysByInfo = nil;
 
-+ (void)initialize {
-	linkBackDataByInfo = [[NSMutableDictionary alloc] initWithCapacity:256];
-	linkBackKeysByInfo = [[NSMutableDictionary alloc] initWithCapacity:256];
-}
-
-- (void)dealloc {
-	[linkBackDataByInfo removeObjectForKey:[self linkBackKey]];
-	
-	[super dealloc];
-}
-
-// SFArchiving
-- (id)initWithXMLUnarchiver:(SFAXMLUnarchiver *)unarchiver node:(struct _xmlNode *)node {
-	if (self = [super initWithXMLUnarchiver:unarchiver node:node]) {
-		xmlNode *cur_node = node->children;
-		NSData *lbd = nil;
-		
-		for (cur_node = node->children; cur_node && (lbd == nil); cur_node = cur_node->next) {
-			if (cur_node->type == XML_ELEMENT_NODE && strcmp(cur_node->name, "LinkBackData") == 0) {
-				lbd = [unarchiver createObjectOfClass:[NSData class] fromNode:cur_node];
-			}
-		}
-		
-		if (lbd != nil) {
-			[self setLinkBackData:[NSPropertyListSerialization propertyListFromData:lbd mutabilityOption:NSPropertyListImmutable format:nil errorDescription:nil]];
-		}
++ (NSMutableDictionary *)_linkBackDataByInfo {
+	if (_linkBackDataByInfo == nil) {
+		_linkBackDataByInfo = [[NSMutableDictionary alloc] initWithCapacity:128];
 	}
-
-	return self;
+	
+	return _linkBackDataByInfo;
 }
 
-- (void)encodeWithXMLArchiver:(SFAXMLArchiver *)archiver node:(struct _xmlNode *)node {
-	[super encodeWithXMLArchiver:archiver node:node];
-	
-	id lbd = [self linkBackData];
-	
-	if (lbd != nil) {
-		NSData *data = [NSPropertyListSerialization dataFromPropertyList:lbd format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
-		
-		if (data != nil) {
-			[archiver encodeObject:data asChildOf:node withName:"LinkBackData" xmlNamespace:nil];
-		}
++ (NSMutableDictionary *)_linkBackKeysByInfo {
+	if (_linkBackKeysByInfo == nil) {
+		_linkBackKeysByInfo = [[NSMutableDictionary alloc] initWithCapacity:128];
 	}
+	
+	return _linkBackKeysByInfo;
 }
 
-// Link Back
+- (void)deallocLinkBack {
+	[self setLinkBackData:nil];
+	[self setLinkBackKey:nil];
+}
+
 - (BOOL)hasLinkBackData {
 	return ([self linkBackData] != nil);
 }
 
 - (id)linkBackData {
-	return [linkBackDataByInfo objectForKey:[self linkBackKey]];
+	return [[[self class] _linkBackDataByInfo] objectForKey:[self linkBackKey]];
 }
 
 - (void)setLinkBackData:(id)data {
 	if (data != nil) {
-		[linkBackDataByInfo setObject:data forKey:[self linkBackKey]];
+		[[[self class] _linkBackDataByInfo] setObject:data forKey:[self linkBackKey]];
 	} else {
-		[linkBackDataByInfo removeObjectForKey:[self linkBackKey]];
+		[[[self class] _linkBackDataByInfo] removeObjectForKey:[self linkBackKey]];
 	}
 }
 
 - (NSString *)linkBackKey {
-	NSString *key = [linkBackKeysByInfo objectForKey:[NSString stringWithFormat:@"%u", (unsigned)self]];
+	NSString *key = [[[self class] _linkBackKeysByInfo] objectForKey:[NSString stringWithFormat:@"%u", (unsigned)self]];
 
 	if (key == nil) {
 		key = LinkBackUniqueItemKey();
@@ -88,9 +64,12 @@ static NSMutableDictionary *linkBackKeysByInfo = nil;
 }
 
 - (void)setLinkBackKey:(NSString *)key {
-	[linkBackKeysByInfo setObject:key forKey:[NSString stringWithFormat:@"%u", (unsigned)self]];
+	if (key != nil) {
+		[[[self class] _linkBackKeysByInfo] setObject:key forKey:[NSString stringWithFormat:@"%u", (unsigned)self]];
+	} else {
+		[[[self class] _linkBackKeysByInfo] removeObjectForKey:[NSString stringWithFormat:@"%u", (unsigned)self]];
+	}
+	
 }
-
-
 
 @end

@@ -7,25 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C021C0607E3665B003D0BD0 /* SFRendering.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C0507E3665B003D0BD0 /* SFRendering.framework */; };
 		3C021C1107E3666A003D0BD0 /* K2LinkBackSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C021C0F07E3666A003D0BD0 /* K2LinkBackSupport.m */; };
-		3C021C7407E368CA003D0BD0 /* SFDrawables.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C6E07E368CA003D0BD0 /* SFDrawables.framework */; };
-		3C021C7507E368CA003D0BD0 /* SFStyles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C6F07E368CA003D0BD0 /* SFStyles.framework */; };
-		3C021C7607E368CA003D0BD0 /* SFWordProcessing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7007E368CA003D0BD0 /* SFWordProcessing.framework */; };
-		3C021C7707E368CA003D0BD0 /* SFUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7107E368CA003D0BD0 /* SFUtility.framework */; };
-		3C021C7807E368CA003D0BD0 /* SFArchiving.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7207E368CA003D0BD0 /* SFArchiving.framework */; };
-		3C021C7907E368CA003D0BD0 /* SFAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7307E368CA003D0BD0 /* SFAnimation.framework */; };
-		3C021C9007E36916003D0BD0 /* SFControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C8E07E36916003D0BD0 /* SFControls.framework */; };
-		3C021C9107E36916003D0BD0 /* SFProofReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C8F07E36916003D0BD0 /* SFProofReader.framework */; };
-		3C021C9707E36920003D0BD0 /* libiconv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C9607E36920003D0BD0 /* libiconv.framework */; };
-		3C021E0307E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C021E0107E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m */; };
-		3C021E4707E38D78003D0BD0 /* APELite.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021E4607E38D78003D0BD0 /* APELite.o */; };
-		3C5BEC3007FB99A1002AEC43 /* SFDSelectionController_LinkBack.h in Resources */ = {isa = PBXBuildFile; fileRef = 3C5BEC2E07FB99A1002AEC43 /* SFDSelectionController_LinkBack.h */; };
-		3C5BEC3107FB99A1002AEC43 /* SFDSelectionController_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BEC2F07FB99A1002AEC43 /* SFDSelectionController_LinkBack.m */; };
-		3C9C9EC107E39870004BC381 /* libxml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9C9EC007E39870004BC381 /* libxml.framework */; };
-		3C9C9FA507E39FD2004BC381 /* LinkBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9C9FA407E39FD2004BC381 /* LinkBack.framework */; };
-		3C9C9FA807E39FD8004BC381 /* LinkBack.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C9C9FA407E39FD2004BC381 /* LinkBack.framework */; };
-		3CA2940607E3C0A90041BA0F /* SFDCanvas_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA2940407E3C0A90041BA0F /* SFDCanvas_LinkBack.m */; };
+		3C19797B0B73DF5D0049975B /* SFDCanvas_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA2940407E3C0A90041BA0F /* SFDCanvas_LinkBack.m */; };
+		3C1979F80B73E1BC0049975B /* SFDSelectionController_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BEC2F07FB99A1002AEC43 /* SFDSelectionController_LinkBack.m */; };
+		3C197A590B73E2D50049975B /* SFDrawables.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197A480B73E2D50049975B /* SFDrawables.framework */; };
+		3C197A600B73E2D50049975B /* SFRendering.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197A4F0B73E2D50049975B /* SFRendering.framework */; };
+		3C197B1F0B73E5410049975B /* SFArchiving.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197B1C0B73E5410049975B /* SFArchiving.framework */; };
+		3C197B200B73E5410049975B /* SFUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197B1D0B73E5410049975B /* SFUtility.framework */; };
+		3C197B210B73E5410049975B /* SFWordProcessing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197B1E0B73E5410049975B /* SFWordProcessing.framework */; };
+		3C197B280B73E54C0049975B /* SFAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197B260B73E54C0049975B /* SFAnimation.framework */; };
+		3C197B290B73E54C0049975B /* SFControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197B270B73E54C0049975B /* SFControls.framework */; };
+		3C197B2F0B73E5570049975B /* SFProofReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197B2D0B73E5570049975B /* SFProofReader.framework */; };
+		3C197B300B73E5570049975B /* SFStyles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C197B2E0B73E5570049975B /* SFStyles.framework */; };
+		3C197B470B73E5AE0049975B /* SFDDrawableInfo_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C021E0107E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m */; };
+		3C6861240B754509008571B0 /* KeynoteHeadersReadme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C6861230B754509008571B0 /* KeynoteHeadersReadme.txt */; };
+		3CFB267B0B750BED0052DCBD /* LinkBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFB267A0B750BED0052DCBD /* LinkBack.framework */; };
+		3CFB26970B750CA50052DCBD /* APELite.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFB26950B750CA50052DCBD /* APELite.o */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B2048680CD000E48DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
@@ -38,7 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3C9C9FA807E39FD8004BC381 /* LinkBack.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,29 +47,34 @@
 		08FB77B6FE84183AC02AAC07 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF630370AF2F00C91783 /* K2LinkBackSupport_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = K2LinkBackSupport_Prefix.pch; sourceTree = "<group>"; };
-		3C021C0507E3665B003D0BD0 /* SFRendering.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFRendering.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFRendering.framework; sourceTree = "<absolute>"; };
 		3C021C0E07E3666A003D0BD0 /* K2LinkBackSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = K2LinkBackSupport.h; sourceTree = "<group>"; };
 		3C021C0F07E3666A003D0BD0 /* K2LinkBackSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = K2LinkBackSupport.m; sourceTree = "<group>"; };
-		3C021C6E07E368CA003D0BD0 /* SFDrawables.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFDrawables.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFDrawables.framework; sourceTree = "<absolute>"; };
-		3C021C6F07E368CA003D0BD0 /* SFStyles.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFStyles.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFStyles.framework; sourceTree = "<absolute>"; };
-		3C021C7007E368CA003D0BD0 /* SFWordProcessing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFWordProcessing.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFWordProcessing.framework; sourceTree = "<absolute>"; };
-		3C021C7107E368CA003D0BD0 /* SFUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFUtility.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFUtility.framework; sourceTree = "<absolute>"; };
-		3C021C7207E368CA003D0BD0 /* SFArchiving.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFArchiving.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFArchiving.framework; sourceTree = "<absolute>"; };
-		3C021C7307E368CA003D0BD0 /* SFAnimation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFAnimation.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFAnimation.framework; sourceTree = "<absolute>"; };
-		3C021C8E07E36916003D0BD0 /* SFControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFControls.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFControls.framework; sourceTree = "<absolute>"; };
-		3C021C8F07E36916003D0BD0 /* SFProofReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFProofReader.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFProofReader.framework; sourceTree = "<absolute>"; };
-		3C021C9607E36920003D0BD0 /* libiconv.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libiconv.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/libiconv.framework; sourceTree = "<absolute>"; };
 		3C021E0007E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDDrawableInfo_LinkBack.h; sourceTree = "<group>"; };
 		3C021E0107E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDDrawableInfo_LinkBack.m; sourceTree = "<group>"; };
-		3C021E3F07E38D71003D0BD0 /* APELite.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = APELite.h; sourceTree = "<group>"; };
-		3C021E4607E38D78003D0BD0 /* APELite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = APELite.o; sourceTree = "<group>"; };
+		3C1979BE0B73E0BE0049975B /* SFRSubviewAbsolverView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFRSubviewAbsolverView.h; path = "Keynote 3 Headers/SFRSubviewAbsolverView.h"; sourceTree = "<group>"; };
+		3C1979BF0B73E0BE0049975B /* SFRCanvas.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFRCanvas.h; path = "Keynote 3 Headers/SFRCanvas.h"; sourceTree = "<group>"; };
+		3C1979C20B73E0C10049975B /* SFDCanvas.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFDCanvas.h; path = "Keynote 3 Headers/SFDCanvas.h"; sourceTree = "<group>"; };
+		3C1979D60B73E0EB0049975B /* SFDDrawableInfo.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFDDrawableInfo.h; path = "Keynote 3 Headers/SFDDrawableInfo.h"; sourceTree = "<group>"; };
+		3C1979E70B73E1160049975B /* SFDSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFDSelectionController.h; path = "Keynote 3 Headers/SFDSelectionController.h"; sourceTree = "<group>"; };
+		3C197A480B73E2D50049975B /* SFDrawables.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFDrawables.framework; path = Frameworks/SFDrawables.framework; sourceTree = "<group>"; };
+		3C197A4F0B73E2D50049975B /* SFRendering.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFRendering.framework; path = Frameworks/SFRendering.framework; sourceTree = "<group>"; };
+		3C197B1C0B73E5410049975B /* SFArchiving.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFArchiving.framework; path = Frameworks/SFArchiving.framework; sourceTree = "<group>"; };
+		3C197B1D0B73E5410049975B /* SFUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFUtility.framework; path = Frameworks/SFUtility.framework; sourceTree = "<group>"; };
+		3C197B1E0B73E5410049975B /* SFWordProcessing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFWordProcessing.framework; path = Frameworks/SFWordProcessing.framework; sourceTree = "<group>"; };
+		3C197B260B73E54C0049975B /* SFAnimation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFAnimation.framework; path = Frameworks/SFAnimation.framework; sourceTree = "<group>"; };
+		3C197B270B73E54C0049975B /* SFControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFControls.framework; path = Frameworks/SFControls.framework; sourceTree = "<group>"; };
+		3C197B2D0B73E5570049975B /* SFProofReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFProofReader.framework; path = Frameworks/SFProofReader.framework; sourceTree = "<group>"; };
+		3C197B2E0B73E5570049975B /* SFStyles.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFStyles.framework; path = Frameworks/SFStyles.framework; sourceTree = "<group>"; };
 		3C5BEC2E07FB99A1002AEC43 /* SFDSelectionController_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDSelectionController_LinkBack.h; sourceTree = "<group>"; };
 		3C5BEC2F07FB99A1002AEC43 /* SFDSelectionController_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDSelectionController_LinkBack.m; sourceTree = "<group>"; };
-		3C9C9EC007E39870004BC381 /* libxml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libxml.framework; path = /Library/Frameworks/libxml.framework; sourceTree = "<absolute>"; };
-		3C9C9FA407E39FD2004BC381 /* LinkBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinkBack.framework; path = /Library/Frameworks/LinkBack.framework; sourceTree = "<absolute>"; };
+		3C6861230B754509008571B0 /* KeynoteHeadersReadme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeynoteHeadersReadme.txt; path = "Keynote 3 Headers/KeynoteHeadersReadme.txt"; sourceTree = "<group>"; };
 		3CA2940307E3C0A90041BA0F /* SFDCanvas_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDCanvas_LinkBack.h; sourceTree = "<group>"; };
 		3CA2940407E3C0A90041BA0F /* SFDCanvas_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDCanvas_LinkBack.m; sourceTree = "<group>"; };
-		8D5B49B6048680CD000E48DA /* K2LinkBackSupport.k2plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = K2LinkBackSupport.k2plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CFB267A0B750BED0052DCBD /* LinkBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LinkBack.framework; sourceTree = "<group>"; };
+		3CFB26940B750CA50052DCBD /* APELite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APELite.h; path = "APE Lite/APELite.h"; sourceTree = "<group>"; };
+		3CFB26950B750CA50052DCBD /* APELite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = APELite.o; path = "APE Lite/APELite.o"; sourceTree = "<group>"; };
+		3CFB28250B75329F0052DCBD /* SFDAffineGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFDAffineGeometry.h; path = "Keynote 3 Headers/SFDAffineGeometry.h"; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* K2LinkBackSupport.sfxplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = K2LinkBackSupport.sfxplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,19 +84,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
-				3C021C0607E3665B003D0BD0 /* SFRendering.framework in Frameworks */,
-				3C021C7407E368CA003D0BD0 /* SFDrawables.framework in Frameworks */,
-				3C021C7507E368CA003D0BD0 /* SFStyles.framework in Frameworks */,
-				3C021C7607E368CA003D0BD0 /* SFWordProcessing.framework in Frameworks */,
-				3C021C7707E368CA003D0BD0 /* SFUtility.framework in Frameworks */,
-				3C021C7807E368CA003D0BD0 /* SFArchiving.framework in Frameworks */,
-				3C021C7907E368CA003D0BD0 /* SFAnimation.framework in Frameworks */,
-				3C021C9007E36916003D0BD0 /* SFControls.framework in Frameworks */,
-				3C021C9107E36916003D0BD0 /* SFProofReader.framework in Frameworks */,
-				3C021C9707E36920003D0BD0 /* libiconv.framework in Frameworks */,
-				3C021E4707E38D78003D0BD0 /* APELite.o in Frameworks */,
-				3C9C9EC107E39870004BC381 /* libxml.framework in Frameworks */,
-				3C9C9FA507E39FD2004BC381 /* LinkBack.framework in Frameworks */,
+				3C197A590B73E2D50049975B /* SFDrawables.framework in Frameworks */,
+				3C197A600B73E2D50049975B /* SFRendering.framework in Frameworks */,
+				3C197B1F0B73E5410049975B /* SFArchiving.framework in Frameworks */,
+				3C197B200B73E5410049975B /* SFUtility.framework in Frameworks */,
+				3C197B210B73E5410049975B /* SFWordProcessing.framework in Frameworks */,
+				3C197B280B73E54C0049975B /* SFAnimation.framework in Frameworks */,
+				3C197B290B73E54C0049975B /* SFControls.framework in Frameworks */,
+				3C197B2F0B73E5570049975B /* SFProofReader.framework in Frameworks */,
+				3C197B300B73E5570049975B /* SFStyles.framework in Frameworks */,
+				3CFB267B0B750BED0052DCBD /* LinkBack.framework in Frameworks */,
+				3CFB26970B750CA50052DCBD /* APELite.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				08FB77AFFE84173DC02AAC07 /* Classes */,
+				3C19798A0B73DF760049975B /* Keynote 3 Headers */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
@@ -117,8 +117,8 @@
 		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				3C021E4607E38D78003D0BD0 /* APELite.o */,
 				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				3C197A380B73E2920049975B /* Keynote 3 */,
 				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
 			);
 			name = "Frameworks and Libraries";
@@ -151,19 +151,8 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C9C9FA407E39FD2004BC381 /* LinkBack.framework */,
+				3CFB267A0B750BED0052DCBD /* LinkBack.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
-				3C021C7307E368CA003D0BD0 /* SFAnimation.framework */,
-				3C021C8E07E36916003D0BD0 /* SFControls.framework */,
-				3C021C7207E368CA003D0BD0 /* SFArchiving.framework */,
-				3C021C6E07E368CA003D0BD0 /* SFDrawables.framework */,
-				3C021C8F07E36916003D0BD0 /* SFProofReader.framework */,
-				3C021C0507E3665B003D0BD0 /* SFRendering.framework */,
-				3C021C6F07E368CA003D0BD0 /* SFStyles.framework */,
-				3C021C7107E368CA003D0BD0 /* SFUtility.framework */,
-				3C021C7007E368CA003D0BD0 /* SFWordProcessing.framework */,
-				3C9C9EC007E39870004BC381 /* libxml.framework */,
-				3C021C9607E36920003D0BD0 /* libiconv.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -180,7 +169,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B6048680CD000E48DA /* K2LinkBackSupport.k2plugin */,
+				8D5B49B6048680CD000E48DA /* K2LinkBackSupport.sfxplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,11 +177,66 @@
 		32C88E010371C26100C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3CFB268C0B750C950052DCBD /* APE Lite */,
 				32DBCF630370AF2F00C91783 /* K2LinkBackSupport_Prefix.pch */,
-				3C021E3F07E38D71003D0BD0 /* APELite.h */,
 				08FB77B6FE84183AC02AAC07 /* main.m */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3C19798A0B73DF760049975B /* Keynote 3 Headers */ = {
+			isa = PBXGroup;
+			children = (
+				3C6861230B754509008571B0 /* KeynoteHeadersReadme.txt */,
+				3C1979A00B73DFA60049975B /* SFDrawables */,
+				3C1979A30B73DFA90049975B /* SFRendering */,
+			);
+			name = "Keynote 3 Headers";
+			sourceTree = "<group>";
+		};
+		3C1979A00B73DFA60049975B /* SFDrawables */ = {
+			isa = PBXGroup;
+			children = (
+				3CFB28250B75329F0052DCBD /* SFDAffineGeometry.h */,
+				3C1979C20B73E0C10049975B /* SFDCanvas.h */,
+				3C1979D60B73E0EB0049975B /* SFDDrawableInfo.h */,
+				3C1979E70B73E1160049975B /* SFDSelectionController.h */,
+			);
+			name = SFDrawables;
+			sourceTree = "<group>";
+		};
+		3C1979A30B73DFA90049975B /* SFRendering */ = {
+			isa = PBXGroup;
+			children = (
+				3C1979BF0B73E0BE0049975B /* SFRCanvas.h */,
+				3C1979BE0B73E0BE0049975B /* SFRSubviewAbsolverView.h */,
+			);
+			name = SFRendering;
+			sourceTree = "<group>";
+		};
+		3C197A380B73E2920049975B /* Keynote 3 */ = {
+			isa = PBXGroup;
+			children = (
+				3C197B2D0B73E5570049975B /* SFProofReader.framework */,
+				3C197B2E0B73E5570049975B /* SFStyles.framework */,
+				3C197B260B73E54C0049975B /* SFAnimation.framework */,
+				3C197B270B73E54C0049975B /* SFControls.framework */,
+				3C197B1C0B73E5410049975B /* SFArchiving.framework */,
+				3C197B1D0B73E5410049975B /* SFUtility.framework */,
+				3C197B1E0B73E5410049975B /* SFWordProcessing.framework */,
+				3C197A480B73E2D50049975B /* SFDrawables.framework */,
+				3C197A4F0B73E2D50049975B /* SFRendering.framework */,
+			);
+			name = "Keynote 3";
+			sourceTree = "<group>";
+		};
+		3CFB268C0B750C950052DCBD /* APE Lite */ = {
+			isa = PBXGroup;
+			children = (
+				3CFB26940B750CA50052DCBD /* APELite.h */,
+				3CFB26950B750CA50052DCBD /* APELite.o */,
+			);
+			name = "APE Lite";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +244,7 @@
 /* Begin PBXNativeTarget section */
 		8D5B49AC048680CD000E48DA /* K2LinkBackSupport */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C2D497A0867BDC800DE8693 /* Build configuration list for PBXNativeTarget "K2LinkBackSupport" */;
+			buildConfigurationList = 3C1978D70B73D5460049975B /* Build configuration list for PBXNativeTarget "K2LinkBackSupport" */;
 			buildPhases = (
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
@@ -214,7 +258,7 @@
 			name = K2LinkBackSupport;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = K2LinkBackSupport;
-			productReference = 8D5B49B6048680CD000E48DA /* K2LinkBackSupport.k2plugin */;
+			productReference = 8D5B49B6048680CD000E48DA /* K2LinkBackSupport.sfxplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -222,7 +266,7 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 3C2D497E0867BDC800DE8693 /* Build configuration list for PBXProject "K2LinkBackSupport" */;
+			buildConfigurationList = 3C1978DB0B73D5460049975B /* Build configuration list for PBXProject "K2LinkBackSupport" */;
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* K2LinkBackSupport */;
 			projectDirPath = "";
@@ -238,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
-				3C5BEC3007FB99A1002AEC43 /* SFDSelectionController_LinkBack.h in Resources */,
+				3C6861240B754509008571B0 /* KeynoteHeadersReadme.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,9 +295,9 @@
 			files = (
 				8D5B49B2048680CD000E48DA /* main.m in Sources */,
 				3C021C1107E3666A003D0BD0 /* K2LinkBackSupport.m in Sources */,
-				3C021E0307E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m in Sources */,
-				3CA2940607E3C0A90041BA0F /* SFDCanvas_LinkBack.m in Sources */,
-				3C5BEC3107FB99A1002AEC43 /* SFDSelectionController_LinkBack.m in Sources */,
+				3C19797B0B73DF5D0049975B /* SFDCanvas_LinkBack.m in Sources */,
+				3C1979F80B73E1BC0049975B /* SFDSelectionController_LinkBack.m in Sources */,
+				3C197B470B73E5AE0049975B /* SFDDrawableInfo_LinkBack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,11 +315,17 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3C2D497B0867BDC800DE8693 /* Development */ = {
+		3C1978D80B73D5460049975B /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/king/build;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/king/build,
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -285,16 +335,22 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_NAME = K2LinkBackSupport;
-				WRAPPER_EXTENSION = k2plugin;
+				WRAPPER_EXTENSION = sfxplugin;
 				ZERO_LINK = YES;
 			};
 			name = Development;
 		};
-		3C2D497C0867BDC800DE8693 /* Deployment */ = {
+		3C1978D90B73D5460049975B /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = /Users/king/build;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/king/build,
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -302,62 +358,86 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_NAME = K2LinkBackSupport;
-				WRAPPER_EXTENSION = k2plugin;
+				WRAPPER_EXTENSION = sfxplugin;
 				ZERO_LINK = NO;
 			};
 			name = Deployment;
 		};
-		3C2D497D0867BDC800DE8693 /* Default */ = {
+		3C1978DA0B73D5460049975B /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = /Users/king/build;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/king/build,
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = K2LinkBackSupport_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_NAME = K2LinkBackSupport;
-				WRAPPER_EXTENSION = k2plugin;
+				WRAPPER_EXTENSION = sfxplugin;
 			};
 			name = Default;
 		};
-		3C2D497F0867BDC800DE8693 /* Development */ = {
+		3C1978DC0B73D5460049975B /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				HEADER_SEARCH_PATHS = /usr/include/libxml2/;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Development;
 		};
-		3C2D49800867BDC800DE8693 /* Deployment */ = {
+		3C1978DD0B73D5460049975B /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				HEADER_SEARCH_PATHS = /usr/include/libxml2/;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Deployment;
 		};
-		3C2D49810867BDC800DE8693 /* Default */ = {
+		3C1978DE0B73D5460049975B /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				HEADER_SEARCH_PATHS = /usr/include/libxml2/;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Default;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3C2D497A0867BDC800DE8693 /* Build configuration list for PBXNativeTarget "K2LinkBackSupport" */ = {
+		3C1978D70B73D5460049975B /* Build configuration list for PBXNativeTarget "K2LinkBackSupport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3C2D497B0867BDC800DE8693 /* Development */,
-				3C2D497C0867BDC800DE8693 /* Deployment */,
-				3C2D497D0867BDC800DE8693 /* Default */,
+				3C1978D80B73D5460049975B /* Development */,
+				3C1978D90B73D5460049975B /* Deployment */,
+				3C1978DA0B73D5460049975B /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
 		};
-		3C2D497E0867BDC800DE8693 /* Build configuration list for PBXProject "K2LinkBackSupport" */ = {
+		3C1978DB0B73D5460049975B /* Build configuration list for PBXProject "K2LinkBackSupport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3C2D497F0867BDC800DE8693 /* Development */,
-				3C2D49800867BDC800DE8693 /* Deployment */,
-				3C2D49810867BDC800DE8693 /* Default */,
+				3C1978DC0B73D5460049975B /* Development */,
+				3C1978DD0B73D5460049975B /* Deployment */,
+				3C1978DE0B73D5460049975B /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
