@@ -17,7 +17,7 @@
 	<key>CFBundleSignature</key>
 	<string>K2lb</string>
 	<key>CFBundleVersion</key>
-	<string>3.0</string>
+	<string>4.0</string>
 	<key>NSPrincipalClass</key>
 	<string>K2LinkBackSupport</string>
 </dict>

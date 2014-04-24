@@ -51,11 +51,11 @@
 		3C021C0F07E3666A003D0BD0 /* K2LinkBackSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = K2LinkBackSupport.m; sourceTree = "<group>"; };
 		3C021E0007E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDDrawableInfo_LinkBack.h; sourceTree = "<group>"; };
 		3C021E0107E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDDrawableInfo_LinkBack.m; sourceTree = "<group>"; };
-		3C1979BE0B73E0BE0049975B /* SFRSubviewAbsolverView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFRSubviewAbsolverView.h; path = "Keynote 3 Headers/SFRSubviewAbsolverView.h"; sourceTree = "<group>"; };
-		3C1979BF0B73E0BE0049975B /* SFRCanvas.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFRCanvas.h; path = "Keynote 3 Headers/SFRCanvas.h"; sourceTree = "<group>"; };
-		3C1979C20B73E0C10049975B /* SFDCanvas.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFDCanvas.h; path = "Keynote 3 Headers/SFDCanvas.h"; sourceTree = "<group>"; };
-		3C1979D60B73E0EB0049975B /* SFDDrawableInfo.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFDDrawableInfo.h; path = "Keynote 3 Headers/SFDDrawableInfo.h"; sourceTree = "<group>"; };
-		3C1979E70B73E1160049975B /* SFDSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SFDSelectionController.h; path = "Keynote 3 Headers/SFDSelectionController.h"; sourceTree = "<group>"; };
+		3C1979BE0B73E0BE0049975B /* SFRSubviewAbsolverView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SFRSubviewAbsolverView.h; sourceTree = "<group>"; };
+		3C1979BF0B73E0BE0049975B /* SFRCanvas.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SFRCanvas.h; sourceTree = "<group>"; };
+		3C1979C20B73E0C10049975B /* SFDCanvas.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SFDCanvas.h; sourceTree = "<group>"; };
+		3C1979D60B73E0EB0049975B /* SFDDrawableInfo.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SFDDrawableInfo.h; sourceTree = "<group>"; };
+		3C1979E70B73E1160049975B /* SFDSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SFDSelectionController.h; sourceTree = "<group>"; };
 		3C197A480B73E2D50049975B /* SFDrawables.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFDrawables.framework; path = Frameworks/SFDrawables.framework; sourceTree = "<group>"; };
 		3C197A4F0B73E2D50049975B /* SFRendering.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFRendering.framework; path = Frameworks/SFRendering.framework; sourceTree = "<group>"; };
 		3C197B1C0B73E5410049975B /* SFArchiving.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFArchiving.framework; path = Frameworks/SFArchiving.framework; sourceTree = "<group>"; };
@@ -67,13 +67,13 @@
 		3C197B2E0B73E5570049975B /* SFStyles.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFStyles.framework; path = Frameworks/SFStyles.framework; sourceTree = "<group>"; };
 		3C5BEC2E07FB99A1002AEC43 /* SFDSelectionController_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDSelectionController_LinkBack.h; sourceTree = "<group>"; };
 		3C5BEC2F07FB99A1002AEC43 /* SFDSelectionController_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDSelectionController_LinkBack.m; sourceTree = "<group>"; };
-		3C6861230B754509008571B0 /* KeynoteHeadersReadme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeynoteHeadersReadme.txt; path = "Keynote 3 Headers/KeynoteHeadersReadme.txt"; sourceTree = "<group>"; };
+		3C6861230B754509008571B0 /* KeynoteHeadersReadme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeynoteHeadersReadme.txt; path = "Keynote 4 Headers/KeynoteHeadersReadme.txt"; sourceTree = "<group>"; };
 		3CA2940307E3C0A90041BA0F /* SFDCanvas_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDCanvas_LinkBack.h; sourceTree = "<group>"; };
 		3CA2940407E3C0A90041BA0F /* SFDCanvas_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDCanvas_LinkBack.m; sourceTree = "<group>"; };
 		3CFB267A0B750BED0052DCBD /* LinkBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LinkBack.framework; sourceTree = "<group>"; };
 		3CFB26940B750CA50052DCBD /* APELite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APELite.h; path = "APE Lite/APELite.h"; sourceTree = "<group>"; };
 		3CFB26950B750CA50052DCBD /* APELite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = APELite.o; path = "APE Lite/APELite.o"; sourceTree = "<group>"; };
-		3CFB28250B75329F0052DCBD /* SFDAffineGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFDAffineGeometry.h; path = "Keynote 3 Headers/SFDAffineGeometry.h"; sourceTree = "<group>"; };
+		3CFB28250B75329F0052DCBD /* SFDAffineGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDAffineGeometry.h; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* K2LinkBackSupport.sfxplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = K2LinkBackSupport.sfxplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				08FB77AFFE84173DC02AAC07 /* Classes */,
-				3C19798A0B73DF760049975B /* Keynote 3 Headers */,
+				3C19798A0B73DF760049975B /* Keynote 4 Headers */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
@@ -184,14 +184,14 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		3C19798A0B73DF760049975B /* Keynote 3 Headers */ = {
+		3C19798A0B73DF760049975B /* Keynote 4 Headers */ = {
 			isa = PBXGroup;
 			children = (
 				3C6861230B754509008571B0 /* KeynoteHeadersReadme.txt */,
 				3C1979A00B73DFA60049975B /* SFDrawables */,
 				3C1979A30B73DFA90049975B /* SFRendering */,
 			);
-			name = "Keynote 3 Headers";
+			name = "Keynote 4 Headers";
 			sourceTree = "<group>";
 		};
 		3C1979A00B73DFA60049975B /* SFDrawables */ = {
@@ -203,6 +203,7 @@
 				3C1979E70B73E1160049975B /* SFDSelectionController.h */,
 			);
 			name = SFDrawables;
+			path = "Keynote 4 Headers";
 			sourceTree = "<group>";
 		};
 		3C1979A30B73DFA90049975B /* SFRendering */ = {
@@ -212,6 +213,7 @@
 				3C1979BE0B73E0BE0049975B /* SFRSubviewAbsolverView.h */,
 			);
 			name = SFRendering;
+			path = "Keynote 4 Headers";
 			sourceTree = "<group>";
 		};
 		3C197A380B73E2920049975B /* Keynote 3 */ = {
