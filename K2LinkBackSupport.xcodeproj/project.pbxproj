@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C021C0607E3665B003D0BD0 /* SFRendering.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C0507E3665B003D0BD0 /* SFRendering.framework */; };
+		3C021C1107E3666A003D0BD0 /* K2LinkBackSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C021C0F07E3666A003D0BD0 /* K2LinkBackSupport.m */; };
+		3C021C7407E368CA003D0BD0 /* SFDrawables.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C6E07E368CA003D0BD0 /* SFDrawables.framework */; };
+		3C021C7507E368CA003D0BD0 /* SFStyles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C6F07E368CA003D0BD0 /* SFStyles.framework */; };
+		3C021C7607E368CA003D0BD0 /* SFWordProcessing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7007E368CA003D0BD0 /* SFWordProcessing.framework */; };
+		3C021C7707E368CA003D0BD0 /* SFUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7107E368CA003D0BD0 /* SFUtility.framework */; };
+		3C021C7807E368CA003D0BD0 /* SFArchiving.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7207E368CA003D0BD0 /* SFArchiving.framework */; };
+		3C021C7907E368CA003D0BD0 /* SFAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C7307E368CA003D0BD0 /* SFAnimation.framework */; };
+		3C021C9007E36916003D0BD0 /* SFControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C8E07E36916003D0BD0 /* SFControls.framework */; };
+		3C021C9107E36916003D0BD0 /* SFProofReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C8F07E36916003D0BD0 /* SFProofReader.framework */; };
+		3C021C9707E36920003D0BD0 /* libiconv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021C9607E36920003D0BD0 /* libiconv.framework */; };
+		3C021E0307E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C021E0107E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m */; };
+		3C021E4707E38D78003D0BD0 /* APELite.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C021E4607E38D78003D0BD0 /* APELite.o */; };
+		3C5BEC3007FB99A1002AEC43 /* SFDSelectionController_LinkBack.h in Resources */ = {isa = PBXBuildFile; fileRef = 3C5BEC2E07FB99A1002AEC43 /* SFDSelectionController_LinkBack.h */; };
+		3C5BEC3107FB99A1002AEC43 /* SFDSelectionController_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BEC2F07FB99A1002AEC43 /* SFDSelectionController_LinkBack.m */; };
+		3C9C9EC107E39870004BC381 /* libxml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9C9EC007E39870004BC381 /* libxml.framework */; };
+		3C9C9FA507E39FD2004BC381 /* LinkBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9C9FA407E39FD2004BC381 /* LinkBack.framework */; };
+		3C9C9FA807E39FD8004BC381 /* LinkBack.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C9C9FA407E39FD2004BC381 /* LinkBack.framework */; };
+		3CA2940607E3C0A90041BA0F /* SFDCanvas_LinkBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA2940407E3C0A90041BA0F /* SFDCanvas_LinkBack.m */; };
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B2048680CD000E48DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3C9C9F5507E39D8C004BC381 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3C9C9FA807E39FD8004BC381 /* LinkBack.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		08FB77B6FE84183AC02AAC07 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF630370AF2F00C91783 /* K2LinkBackSupport_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = K2LinkBackSupport_Prefix.pch; sourceTree = "<group>"; };
+		3C021C0507E3665B003D0BD0 /* SFRendering.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFRendering.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFRendering.framework; sourceTree = "<absolute>"; };
+		3C021C0E07E3666A003D0BD0 /* K2LinkBackSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = K2LinkBackSupport.h; sourceTree = "<group>"; };
+		3C021C0F07E3666A003D0BD0 /* K2LinkBackSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = K2LinkBackSupport.m; sourceTree = "<group>"; };
+		3C021C6E07E368CA003D0BD0 /* SFDrawables.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFDrawables.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFDrawables.framework; sourceTree = "<absolute>"; };
+		3C021C6F07E368CA003D0BD0 /* SFStyles.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFStyles.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFStyles.framework; sourceTree = "<absolute>"; };
+		3C021C7007E368CA003D0BD0 /* SFWordProcessing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFWordProcessing.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFWordProcessing.framework; sourceTree = "<absolute>"; };
+		3C021C7107E368CA003D0BD0 /* SFUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFUtility.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFUtility.framework; sourceTree = "<absolute>"; };
+		3C021C7207E368CA003D0BD0 /* SFArchiving.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFArchiving.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFArchiving.framework; sourceTree = "<absolute>"; };
+		3C021C7307E368CA003D0BD0 /* SFAnimation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFAnimation.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFAnimation.framework; sourceTree = "<absolute>"; };
+		3C021C8E07E36916003D0BD0 /* SFControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFControls.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFControls.framework; sourceTree = "<absolute>"; };
+		3C021C8F07E36916003D0BD0 /* SFProofReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFProofReader.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/SFProofReader.framework; sourceTree = "<absolute>"; };
+		3C021C9607E36920003D0BD0 /* libiconv.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libiconv.framework; path = /Applications/iWork/Keynote.app/Contents/Frameworks/libiconv.framework; sourceTree = "<absolute>"; };
+		3C021E0007E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDDrawableInfo_LinkBack.h; sourceTree = "<group>"; };
+		3C021E0107E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDDrawableInfo_LinkBack.m; sourceTree = "<group>"; };
+		3C021E3F07E38D71003D0BD0 /* APELite.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = APELite.h; sourceTree = "<group>"; };
+		3C021E4607E38D78003D0BD0 /* APELite.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = APELite.o; sourceTree = "<group>"; };
+		3C5BEC2E07FB99A1002AEC43 /* SFDSelectionController_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDSelectionController_LinkBack.h; sourceTree = "<group>"; };
+		3C5BEC2F07FB99A1002AEC43 /* SFDSelectionController_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDSelectionController_LinkBack.m; sourceTree = "<group>"; };
+		3C9C9EC007E39870004BC381 /* libxml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libxml.framework; path = /Library/Frameworks/libxml.framework; sourceTree = "<absolute>"; };
+		3C9C9FA407E39FD2004BC381 /* LinkBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinkBack.framework; path = /Library/Frameworks/LinkBack.framework; sourceTree = "<absolute>"; };
+		3CA2940307E3C0A90041BA0F /* SFDCanvas_LinkBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDCanvas_LinkBack.h; sourceTree = "<group>"; };
+		3CA2940407E3C0A90041BA0F /* SFDCanvas_LinkBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDCanvas_LinkBack.m; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* K2LinkBackSupport.k2plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = K2LinkBackSupport.k2plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				3C021C0607E3665B003D0BD0 /* SFRendering.framework in Frameworks */,
+				3C021C7407E368CA003D0BD0 /* SFDrawables.framework in Frameworks */,
+				3C021C7507E368CA003D0BD0 /* SFStyles.framework in Frameworks */,
+				3C021C7607E368CA003D0BD0 /* SFWordProcessing.framework in Frameworks */,
+				3C021C7707E368CA003D0BD0 /* SFUtility.framework in Frameworks */,
+				3C021C7807E368CA003D0BD0 /* SFArchiving.framework in Frameworks */,
+				3C021C7907E368CA003D0BD0 /* SFAnimation.framework in Frameworks */,
+				3C021C9007E36916003D0BD0 /* SFControls.framework in Frameworks */,
+				3C021C9107E36916003D0BD0 /* SFProofReader.framework in Frameworks */,
+				3C021C9707E36920003D0BD0 /* libiconv.framework in Frameworks */,
+				3C021E4707E38D78003D0BD0 /* APELite.o in Frameworks */,
+				3C9C9EC107E39870004BC381 /* libxml.framework in Frameworks */,
+				3C9C9FA507E39FD2004BC381 /* LinkBack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* K2LinkBackSupport */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = K2LinkBackSupport;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3C021E4607E38D78003D0BD0 /* APELite.o */,
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3C021C0E07E3666A003D0BD0 /* K2LinkBackSupport.h */,
+				3C021C0F07E3666A003D0BD0 /* K2LinkBackSupport.m */,
+				3C021E0007E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.h */,
+				3C021E0107E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m */,
+				3CA2940307E3C0A90041BA0F /* SFDCanvas_LinkBack.h */,
+				3CA2940407E3C0A90041BA0F /* SFDCanvas_LinkBack.m */,
+				3C5BEC2E07FB99A1002AEC43 /* SFDSelectionController_LinkBack.h */,
+				3C5BEC2F07FB99A1002AEC43 /* SFDSelectionController_LinkBack.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C9C9FA407E39FD2004BC381 /* LinkBack.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				3C021C7307E368CA003D0BD0 /* SFAnimation.framework */,
+				3C021C8E07E36916003D0BD0 /* SFControls.framework */,
+				3C021C7207E368CA003D0BD0 /* SFArchiving.framework */,
+				3C021C6E07E368CA003D0BD0 /* SFDrawables.framework */,
+				3C021C8F07E36916003D0BD0 /* SFProofReader.framework */,
+				3C021C0507E3665B003D0BD0 /* SFRendering.framework */,
+				3C021C6F07E368CA003D0BD0 /* SFStyles.framework */,
+				3C021C7107E368CA003D0BD0 /* SFUtility.framework */,
+				3C021C7007E368CA003D0BD0 /* SFWordProcessing.framework */,
+				3C9C9EC007E39870004BC381 /* libxml.framework */,
+				3C021C9607E36920003D0BD0 /* libiconv.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* K2LinkBackSupport.k2plugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF630370AF2F00C91783 /* K2LinkBackSupport_Prefix.pch */,
+				3C021E3F07E38D71003D0BD0 /* APELite.h */,
+				08FB77B6FE84183AC02AAC07 /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* K2LinkBackSupport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C2D497A0867BDC800DE8693 /* Build configuration list for PBXNativeTarget "K2LinkBackSupport" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				3C9C9F5507E39D8C004BC381 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = K2LinkBackSupport;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = K2LinkBackSupport;
+			productReference = 8D5B49B6048680CD000E48DA /* K2LinkBackSupport.k2plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3C2D497E0867BDC800DE8693 /* Build configuration list for PBXProject "K2LinkBackSupport" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* K2LinkBackSupport */;
+			projectDirPath = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* K2LinkBackSupport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				3C5BEC3007FB99A1002AEC43 /* SFDSelectionController_LinkBack.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B2048680CD000E48DA /* main.m in Sources */,
+				3C021C1107E3666A003D0BD0 /* K2LinkBackSupport.m in Sources */,
+				3C021E0307E38B2C003D0BD0 /* SFDDrawableInfo_LinkBack.m in Sources */,
+				3CA2940607E3C0A90041BA0F /* SFDCanvas_LinkBack.m in Sources */,
+				3C5BEC3107FB99A1002AEC43 /* SFDSelectionController_LinkBack.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3C2D497B0867BDC800DE8693 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = /Users/king/build;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = K2LinkBackSupport_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = K2LinkBackSupport;
+				WRAPPER_EXTENSION = k2plugin;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		3C2D497C0867BDC800DE8693 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = /Users/king/build;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = K2LinkBackSupport_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = K2LinkBackSupport;
+				WRAPPER_EXTENSION = k2plugin;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		3C2D497D0867BDC800DE8693 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = /Users/king/build;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = K2LinkBackSupport_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = K2LinkBackSupport;
+				WRAPPER_EXTENSION = k2plugin;
+			};
+			name = Default;
+		};
+		3C2D497F0867BDC800DE8693 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Development;
+		};
+		3C2D49800867BDC800DE8693 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		3C2D49810867BDC800DE8693 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C2D497A0867BDC800DE8693 /* Build configuration list for PBXNativeTarget "K2LinkBackSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2D497B0867BDC800DE8693 /* Development */,
+				3C2D497C0867BDC800DE8693 /* Deployment */,
+				3C2D497D0867BDC800DE8693 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C2D497E0867BDC800DE8693 /* Build configuration list for PBXProject "K2LinkBackSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2D497F0867BDC800DE8693 /* Development */,
+				3C2D49800867BDC800DE8693 /* Deployment */,
+				3C2D49810867BDC800DE8693 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
